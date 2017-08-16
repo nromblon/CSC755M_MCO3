@@ -107,7 +107,7 @@ class quadtree():
         # Display image
         img.show()
 
-img = Image.open("C:\pigeon.jpg")
+img = Image.open("test.jpg")
 
 q = quadtree(img)
-q.disp(4)
+q.disp(5)
