@@ -1,4 +1,4 @@
-from Pillow import Image
+from PIL import Image
 import math
 
 
@@ -35,14 +35,16 @@ class quadtree():
 
         # Total number of leaf nodes
         size = image.size[0] * image.size[1]
-
+        print(self.size)
         # Count number of nodes
         while (size >= 1):
-            self.size += size
+            self.size += int(size)
             size /= 4
 
+        print(self.size)
         size = image.size[0] * image.size[1]
-
+        print(image.size[0])
+        print(image.size[1])
         # Initialize array elements
         for i in range(0, self.size):
             self.tree.append(Pixel())
@@ -100,7 +102,12 @@ class quadtree():
             for x in range(x1, x2 + 1):
                 for y in range(y1, y2 + 1):
                     # Set colour
-                    pixels[x, y] = (i.R, i.G, i.B)
+                    pixels[x, y] = (int(i.R), int(i.G), int(i.B))
 
         # Display image
         img.show()
+
+img = Image.open("C:\pigeon.jpg")
+
+q = quadtree(img)
+q.disp(4)
