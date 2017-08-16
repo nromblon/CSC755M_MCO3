@@ -20,6 +20,10 @@ class Pixel(object):
 
 
 class quadtree():
+
+    nodes = 0
+    depth = 0
+
     def __init__(self, image):
 
         # Total number of nodes of tree
@@ -43,8 +47,11 @@ class quadtree():
 
         print(self.size)
         size = image.size[0] * image.size[1]
-        print(image.size[0])
-        print(image.size[1])
+
+        #set number of nodes and depth for reference
+        self.nodes = size
+        self.depth = math.log(self.nodes,4)
+
         # Initialize array elements
         for i in range(0, self.size):
             self.tree.append(Pixel())
@@ -110,4 +117,5 @@ class quadtree():
 img = Image.open("test.jpg")
 
 q = quadtree(img)
-q.disp(5)
+print(q.depth)
+q.disp(7)
