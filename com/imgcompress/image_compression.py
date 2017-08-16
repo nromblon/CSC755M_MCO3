@@ -113,9 +113,3 @@ class quadtree():
 
         # Display image
         img.show()
-
-img = Image.open("test.jpg")
-
-q = quadtree(img)
-print(q.depth)
-q.disp(7)
